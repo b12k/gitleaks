@@ -1,0 +1,73 @@
+{
+  "name": "@b12k/gitleaks",
+  "version": "8.30.1",
+  "description": "The missing NPM wrapper for Gitleaks",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Bogdan Kolesnyk",
+  "type": "module",
+  "bin": {
+    "gitleaks": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "scripts"
+  ],
+  "scripts": {
+    "build": "rslib",
+    "check": "run-p -l check:*",
+    "check:format": "prettier . --check",
+    "check:package-json": "sort-package-json --check",
+    "check:scripts": "eslint . ",
+    "check:types": "tsc --noEmit",
+    "deps:check": "ncu -e 1",
+    "deps:update": "ncu -du --doctorInstall \"pnpm i\" --doctorTest \"pnpm fix:deps:doctor\"",
+    "deps:update:doctor": "run-p check:types build",
+    "dev": "rslib --watch",
+    "fix": "run-p -l fix:*",
+    "fix:format": "prettier . --write",
+    "fix:package-json": "sort-package-json",
+    "fix:scripts": "eslint . --fix",
+    "husky:commit-msg": "commitlint",
+    "husky:pre-commit": "lint-staged",
+    "husky:pre-push": "branch-name-lint",
+    "postinstall": "node scripts/postinstall.js",
+    "prepare": "husky",
+    "try": "node dist/cli.js"
+  },
+  "dependencies": {
+    "boxen": "8.0.1",
+    "extract-zip": "2.0.1",
+    "tar": "7.5.13",
+    "update-notifier": "7.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "20.5.3",
+    "@eslint/compat": "2.0.5",
+    "@eslint/js": "^10.0.1",
+    "@rslib/core": "0.21.3",
+    "@types/node": "25.6.0",
+    "@types/update-notifier": "6.0.8",
+    "commitlint": "20.5.3",
+    "eslint": "^10.3.0",
+    "eslint-config-airbnb-extended": "3.1.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-perfectionist": "5.9.0",
+    "eslint-plugin-prettier": "5.5.5",
+    "eslint-plugin-unicorn": "64.0.0",
+    "husky": "9.1.7",
+    "lint-staged": "16.4.0",
+    "npm-check-updates": "22.1.0",
+    "npm-run-all2": "8.0.4",
+    "prettier": "3.8.3",
+    "sort-package-json": "3.6.1",
+    "typescript": "6.0.3"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
