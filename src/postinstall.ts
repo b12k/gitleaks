@@ -32,6 +32,7 @@ try {
   });
   const response = await fetch(archiveGithubUrl);
   if (!response.ok) throw new Error(String(response.status));
+  if (!response.body) throw new Error('Archive download returned no body.');
 
   log(archivePath, { borderColor: 'green', title: `${libraryName}:save` });
   await pipeline(
@@ -51,5 +52,5 @@ try {
   if (error instanceof Error) {
     message = error.message;
   }
-  logError('instalationFailed', message);
+  logError('installationFailed', message);
 }

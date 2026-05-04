@@ -32,6 +32,7 @@
     "husky:pre-commit": "lint-staged",
     "husky:pre-push": "branch-name-lint",
     "postinstall": "node scripts/postinstall.js",
+    "prepack": "run-s check build",
     "prepare": "husky",
     "try": "node dist/cli.js"
   },
@@ -44,12 +45,12 @@
   "devDependencies": {
     "@commitlint/config-conventional": "20.5.3",
     "@eslint/compat": "2.0.5",
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "10.0.1",
     "@rslib/core": "0.21.3",
     "@types/node": "25.6.0",
     "@types/update-notifier": "6.0.8",
     "commitlint": "20.5.3",
-    "eslint": "^10.3.0",
+    "eslint": "10.3.0",
     "eslint-config-airbnb-extended": "3.1.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-perfectionist": "5.9.0",

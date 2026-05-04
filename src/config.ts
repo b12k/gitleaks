@@ -5,7 +5,7 @@ import packageJson from '../package.json' with { type: 'json' };
 const platform = process.platform === 'win32' ? 'windows' : process.platform;
 const isWindows = platform === 'windows';
 const { arch: architecture } = process;
-const { version } = packageJson;
+const { name, version } = packageJson;
 
 const currentDirectory = import.meta.dirname;
 
@@ -30,7 +30,7 @@ export {
   binaryPath,
   currentDirectory,
   libraryName,
+  name,
   platform,
+  version,
 };
-
-export { default as packageJson } from '../package.json' with { type: 'json' };

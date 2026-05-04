@@ -9,7 +9,7 @@ export function log(message: string, options: Options) {
   console.log(boxen(message, options));
 }
 
-const errorPerfix = '[gitleaks]';
+const errorPrefix = '[gitleaks]';
 export function logError(errorName: keyof typeof ERRORS, metaInfo?: string) {
   const error = ERRORS[errorName];
   let logMessage = error.message;
@@ -19,7 +19,7 @@ export function logError(errorName: keyof typeof ERRORS, metaInfo?: string) {
   if (metaInfo) {
     logMessage += `\n\n${metaInfo}`;
   }
-  log(logMessage, { borderColor: 'red', title: errorPerfix });
+  log(logMessage, { borderColor: 'red', title: errorPrefix });
 
-  throw new Error(`[${errorPerfix}] ${error.message}`);
+  throw new Error(`${errorPrefix} ${error.message}`);
 }

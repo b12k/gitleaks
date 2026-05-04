@@ -4,21 +4,20 @@ export const ERRORS = {
     instruction: 'Try re-installing the library.',
     message: 'Binary not found.',
   },
-  instalationFailed: {
+  installationFailed: {
     instruction: '',
     message: 'Failed to install the binary.',
   },
-  unknownArmVersion: {
-    instruction:
-      'The ARM version could not be determined from the process configuration.',
-    message: 'Unknown ARM version.',
-  },
   unsupportedArchitecture: {
-    instruction: 'Supported architetures are x64, arm64 and ia32.',
+    instruction: 'Supported architectures are x64 and arm64.',
     message: 'Unsupported architecture.',
   },
+  unsupportedArchiveFormat: {
+    instruction: 'Supported archive formats are .zip and .tar.gz.',
+    message: 'Unsupported archive format.',
+  },
   unsupportedPlatform: {
-    instruction: 'Supported platforms are darwin, win32 and linux.',
+    instruction: 'Supported platforms are darwin, windows and linux.',
     message: 'Unsupported platform.',
   },
 } as const satisfies ErrorByKey;
