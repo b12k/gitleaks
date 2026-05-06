@@ -23,6 +23,9 @@ importers:
         specifier: 7.3.1
         version: 7.3.1
     devDependencies:
+      '@b12k/branch-name-lint':
+        specifier: 1.3.0
+        version: 1.3.0
       '@commitlint/config-conventional':
         specifier: 20.5.3
         version: 20.5.3
@@ -182,6 +185,13 @@ packages:
         integrity: sha512-Hb4o6h1Pf6yRUAX07DR4JVY7dmQw+RVQMW5/m55GoiAT/VRoKCWBtIUPPOnqDVhbx1Cjfil9b6EDrgJsUAujEQ==,
       }
     engines: { node: '>= 10' }
+
+  '@b12k/branch-name-lint@1.3.0':
+    resolution:
+      {
+        integrity: sha512-GhzOKKHvMhDArpCEll1OSOQO/9vEK5rgEdLMM9Y36dyUSXE9moMB+A7nL6zcGyFtPnVVIdKa34ofXVHwC/atQA==,
+      }
+    hasBin: true
 
   '@babel/code-frame@7.29.0':
     resolution:
@@ -5260,6 +5270,8 @@ snapshots:
       '@ast-grep/napi-win32-arm64-msvc': 0.37.0
       '@ast-grep/napi-win32-ia32-msvc': 0.37.0
       '@ast-grep/napi-win32-x64-msvc': 0.37.0
+
+  '@b12k/branch-name-lint@1.3.0': {}
 
   '@babel/code-frame@7.29.0':
     dependencies:
