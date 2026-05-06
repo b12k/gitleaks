@@ -1,0 +1,61 @@
+#name: Gitleaks update version
+#
+#on:
+#  schedule:
+#    - cron: '0 8 * * *'
+#  workflow_dispatch:
+#
+#permissions:
+#  contents: write
+#
+#concurrency:
+#  group: gitleaks-update-version
+#  cancel-in-progress: false
+#
+#jobs:
+#  update-version:
+#    name: Gitleaks update version
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v6
+#        with:
+#          fetch-depth: 0
+#
+#      - uses: pnpm/action-setup@v6
+#        name: Install pnpm
+#        with:
+#          cache: true
+#
+#      - name: Install dependencies
+#        run: pnpm i --frozen-lockfile
+#
+#      - name: Build
+#        run: pnpm build
+#
+#      - name: Compare versions
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: pnpm gitleaks:update-version
+#
+##      - name: Commit and push update
+##        if: steps.version.outputs.updated == 'true'
+##        run: |
+##          git config user.name "${{ GITHUB_USER_NAME }}"
+##          git config user.email "${{ GITHUB_USER_EMAIL }}"
+##          git add package.json
+##          git commit -m "chore: update gitleaks to ${{ steps.version.outputs.latest }}"
+##          git push origin HEAD:main
+##
+##      - name: Send Telegram message
+##        if: steps.version.outputs.updated == 'true'
+##        env:
+##          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+##          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+##        run: |
+##          curl --fail --show-error --silent \
+##            --request POST \
+##            --url "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+##            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+##            --data-urlencode "text=Released `@b12k/gitleaks` ${{ steps.version.outputs.latest }}"

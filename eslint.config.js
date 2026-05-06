@@ -41,15 +41,13 @@ export default defineConfig([
   ...typescriptConfig,
   unicorn.configs.all,
   perfectionist.configs['recommended-natural'],
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: { allowDefaultProject: ['*.js', 'scripts/*.js'] },
-      },
-    },
-    name: 'local/ts-project-service',
-  },
   { name: 'local/import-order', rules: { 'import-x/order': 'off' } },
+  {
+    name: 'local/function-style',
+    rules: {
+      'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+    },
+  },
   { name: 'local/hashbang', rules: { 'n/hashbang': 'off' } },
   {
     ignores: ['src/**'],

@@ -1,6 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "allowJs": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "erasableSyntaxOnly": true,
@@ -22,5 +23,6 @@
     "strict": true,
     "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*.ts", "*.ts"]
+  "include": ["**/*.ts", "**/*.js"],
+  "exclude": ["dist"]
 }
