@@ -14,6 +14,12 @@ Typically installed as a dev dependency:
 npm install --save-dev @b12k/gitleaks
 ```
 
+Recent npm versions require approving dependency install scripts. Approve this package so its postinstall script can download the gitleaks binary:
+
+```bash
+npm approve-scripts @b12k/gitleaks
+```
+
 ```bash
 pnpm add -D --allow-build=@b12k/gitleaks @b12k/gitleaks
 ```
@@ -27,8 +33,10 @@ yarn add --dev @b12k/gitleaks
 **Global**
 
 ```bash
-npm install -g @b12k/gitleaks
+npm install -g --allow-scripts=@b12k/gitleaks @b12k/gitleaks
 ```
+
+Global npm installs cannot use `npm approve-scripts`; use `--allow-scripts` instead.
 
 ```bash
 pnpm add -g --allow-build=@b12k/gitleaks @b12k/gitleaks
@@ -42,7 +50,12 @@ yarn global add @b12k/gitleaks
 
 The postinstall script downloads the gitleaks binary for your platform from the official GitHub release.
 
-If you already installed with pnpm 11 and the build was blocked, approve and rebuild it:
+If you already installed with npm or pnpm and the build was blocked, approve and rebuild it:
+
+```bash
+npm approve-scripts @b12k/gitleaks
+npm rebuild @b12k/gitleaks
+```
 
 ```bash
 pnpm approve-builds @b12k/gitleaks
@@ -106,3 +119,9 @@ yarn add --dev @b12k/gitleaks --foreground-scripts
 The npm package version mirrors the gitleaks release version.
 
 To install a different gitleaks release, define it in `.gitleaks-version` as `v1.2.3` or `1.2.3` before installing the package.
+
+If you add or change `.gitleaks-version` after installing, run:
+
+```bash
+gitleaks-install
+```

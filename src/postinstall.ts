@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import type { ReadableStream } from 'node:stream/web';
 
 import { createHash } from 'node:crypto';

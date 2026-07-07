@@ -29,7 +29,8 @@
   "author": "Bogdan Kolesnyk",
   "type": "module",
   "bin": {
-    "gitleaks": "dist/cli.js"
+    "gitleaks": "dist/cli.js",
+    "gitleaks-install": "dist/postinstall.js"
   },
   "files": [
     "dist",
