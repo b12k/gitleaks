@@ -18,7 +18,6 @@ env:
   GIT_USER_EMAIL: ${{ vars.GIT_USER_EMAIL }}
   GIT_USER_NAME: ${{ vars.GIT_USER_NAME }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  NPM_CONFIG_ENGINE_STRICT: false
   RELEASE_IT_PUSH_REPO: git@github.com:${{ github.repository }}.git
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
