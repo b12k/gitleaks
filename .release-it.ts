@@ -15,7 +15,7 @@ const config: Config = {
     release: true,
     releaseName: 'Release ${version}',
   },
-  npm: { publishArgs: ['--provenance'], tag: 'latest' },
+  npm: { publishArgs: ['--provenance'], skipChecks: true, tag: 'latest' },
   plugins: { '@release-it/conventional-changelog': { preset: 'conventionalcommits' } },
 };
 
