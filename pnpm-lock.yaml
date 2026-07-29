@@ -226,8 +226,8 @@ importers:
         specifier: 8.0.1
         version: 8.0.1
       tar:
-        specifier: 7.5.20
-        version: 7.5.20
+        specifier: 7.5.21
+        version: 7.5.21
       update-notifier:
         specifier: 7.3.1
         version: 7.3.1
@@ -278,8 +278,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       lint-staged:
-        specifier: 17.1.0
-        version: 17.1.0
+        specifier: 17.1.1
+        version: 17.1.1
       npm-check-updates:
         specifier: 22.2.9
         version: 22.2.9
@@ -3226,9 +3226,9 @@ packages:
     resolution:
       { integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg== }
 
-  lint-staged@17.1.0:
+  lint-staged@17.1.1:
     resolution:
-      { integrity: sha512-d7UQRu/9ZPgfu4+hu/k0wny5GEaIxo+2jb2LJqQDkE7cHRTm1HGqNUDq5UOwsGPpjpaNAFmgAsYo3TR+i9cSJw== }
+      { integrity: sha512-FnHWpSe5cPRtrDG+soOuNdBxb4XQb2gN5EqpEWKdweyqyOfpl4QSjbrz3ilcIf0WXmkiNQGZZRQ23R5YtB3TEw== }
     engines: { node: '>=22.22.1' }
     hasBin: true
 
@@ -4085,9 +4085,9 @@ packages:
       { integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A== }
     engines: { node: '>=6' }
 
-  tar@7.5.20:
+  tar@7.5.21:
     resolution:
-      { integrity: sha512-9FcyK4PA6+WbzlTM9WhQm6vB5W7cP7dUiPsv1g7YDwEQnQ1CGpK3MGlKk/ITVWMk05kHZuBhmVhiv8LZoy/PFQ== }
+      { integrity: sha512-XdhtCvlMywwxpCW8YEq3lOXBJpUPTR2OHHcwLPO3HwsJqOHa2Ok/oJ7ruGzp+JrKoRPVCzJwAdEjqLW/vNRPHA== }
     engines: { node: '>=18' }
 
   time-span@5.1.0:
@@ -6942,7 +6942,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  lint-staged@17.1.0:
+  lint-staged@17.1.1:
     dependencies:
       picomatch: 4.0.5
       string-argv: 0.3.2
@@ -7688,7 +7688,7 @@ snapshots:
 
   tapable@2.3.3: {}
 
-  tar@7.5.20:
+  tar@7.5.21:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
