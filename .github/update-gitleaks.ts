@@ -10,10 +10,10 @@ const { tag_name: latestGitleaksTag } = (await response.json()) as { tag_name: s
 
 const { version } = packageJson;
 const latestGitleaksVersion = latestGitleaksTag.replace('v', '');
-const [libraryGitleaksVersion = ''] = version.split('-');
+const [libraryGitleaksVersion = ''] = version.split('-', 1);
 const [updateToVersion = ''] = rsort([latestGitleaksVersion, libraryGitleaksVersion]);
 
-if (latestGitleaksTag.includes('-') || updateToVersion === libraryGitleaksVersion) {
+if (updateToVersion === libraryGitleaksVersion || latestGitleaksTag.includes('-')) {
   // eslint-disable-next-line n/no-process-exit
   process.exit(0);
 }

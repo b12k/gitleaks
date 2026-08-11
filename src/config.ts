@@ -7,7 +7,7 @@ const platform = process.platform === 'win32' ? 'windows' : process.platform;
 const isWindows = platform === 'windows';
 const { arch: architecture } = process;
 const { name, version } = packageJson;
-const [defaultVersion = ''] = version.split('-');
+const [defaultVersion = ''] = version.split('-', 1);
 const versionFileName = '.gitleaks-version';
 const versionFilePath = path.join(process.env['INIT_CWD'] ?? process.cwd(), versionFileName);
 
