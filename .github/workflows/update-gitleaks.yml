@@ -71,7 +71,7 @@ jobs:
 
       - name: Notify GitLeaks not changed
         if: steps.changes.outputs.updated == 'false'
-        run: pnpm ga:notify success "[@b12k/gitleaks] GitLeaks not changed."
+        run: pnpm ga:notify info "[@b12k/gitleaks] GitLeaks not changed."
 
       - name: Notify GitLeaks update failed
         if: failure()
