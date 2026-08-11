@@ -45,7 +45,8 @@ jobs:
         run: git remote set-url origin git@github.com:${{ github.repository }}.git
 
       - name: Update
-        run: pnpm deps:update
+        id: update
+        run: pnpm deps:update && pnpm deps:check
 
       - name: Check changes
         if: always()
