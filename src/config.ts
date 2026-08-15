@@ -14,9 +14,9 @@ const versionFilePath = path.join(process.env['INIT_CWD'] ?? process.cwd(), vers
 let versionOverride: string;
 try {
   const fileContents = await readFile(versionFilePath, 'utf8');
-  versionOverride = fileContents.trim().replace(/^v/, '');
+  versionOverride = fileContents.trim().replace(/^v/u, '');
 } catch (error: unknown) {
-  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
+  if (!(error instanceof Error && 'code' in error && error.code === 'ENOENT')) {
     const message = Error.isError(error) ? error.message : 'Unknown error.';
     throw new Error(`Failed to read ${versionFileName}: ${message}`, { cause: error });
   }

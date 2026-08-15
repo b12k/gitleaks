@@ -1,4 +1,4 @@
-/* eslint-disable no-template-curly-in-string */
+/* oxlint-disable no-template-curly-in-string */
 import type { Config } from 'release-it';
 
 const { RELEASE_IT_PUSH_REPO = '' } = process.env;
@@ -13,7 +13,6 @@ const config: Config = {
       submit: true,
     },
     release: true,
-    releaseName: 'Release ${version}',
   },
   npm: {
     publishArgs: ['--provenance', '--no-git-checks'],

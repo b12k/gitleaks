@@ -6,7 +6,7 @@ import { libraryName } from './config';
 import { ERRORS_BY_KEY } from './errors';
 
 export function log(message: string, options: Options) {
-  // eslint-disable-next-line no-console
+  // oxlint-disable-next-line no-console
   console.log(boxen(message, options));
 }
 
