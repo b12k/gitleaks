@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
-import type { ReadableStream } from 'node:stream/web';
-
 import { createHash } from 'node:crypto';
 import { createWriteStream } from 'node:fs';
 import { readFile, rm } from 'node:fs/promises';
-import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 
 import {
@@ -46,7 +43,7 @@ async function downloadArchive() {
   if (!response.body) throw new Error('Archive download returned no body.');
 
   log(archivePath, { borderColor: 'green', title: `${libraryName}:save` });
-  await pipeline(Readable.fromWeb(response.body as unknown as ReadableStream), createWriteStream(archivePath));
+  await pipeline(response.body, createWriteStream(archivePath));
 }
 
 async function ensureArchiveChecksum() {
@@ -56,7 +53,7 @@ async function ensureArchiveChecksum() {
   const checksum = checksums
     .split('\n')
     .find((line) => line.endsWith(` ${archiveFileName}`))
-    ?.split(/\s+/, 1)[0];
+    ?.split(/\s+/u, 1)[0];
   if (!checksum) throw new Error(`Checksum not found for ${archiveFileName}.`);
 
   const archive = await readFile(archivePath);

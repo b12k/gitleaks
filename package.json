@@ -21,13 +21,12 @@
     "tokens",
     "wrapper"
   ],
+  "license": "MIT",
+  "author": "Bogdan Kolesnyk",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/b12k/gitleaks.git"
   },
-  "license": "MIT",
-  "author": "Bogdan Kolesnyk",
-  "type": "module",
   "bin": {
     "gitleaks": "dist/cli.js",
     "gitleaks-install": "dist/postinstall.js"
@@ -36,21 +35,23 @@
     "dist",
     "scripts"
   ],
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rslib",
     "check": "run-p -l check:*",
-    "check:format": "prettier . --check",
-    "check:package-json": "sort-package-json --check",
-    "check:scripts": "eslint . --cache",
+    "check:format": "oxfmt . --check",
+    "check:scripts": "oxlint",
     "check:types": "tsc --noEmit",
     "deps:check": "ncu -e 2 -c 1",
     "deps:update": "ncu -du --doctorTest \"pnpm deps:update:doctor\" -c 1",
     "deps:update:doctor": "run-p -l check:types check:scripts build",
     "dev": "rslib --watch",
-    "fix": "run-p -l fix:*",
-    "fix:format": "prettier . --write",
-    "fix:package-json": "sort-package-json",
-    "fix:scripts": "eslint . --fix --cache",
+    "fix": "run-s -l fix:*",
+    "fix:format": "oxfmt . --write",
+    "fix:scripts": "oxlint --fix",
     "ga:notify": "tsx .github/notify.ts",
     "ga:update-gitleaks": "tsx .github/update-gitleaks.ts",
     "husky:commit-msg": "commitlint",
@@ -69,34 +70,27 @@
   "devDependencies": {
     "@b12k/branch-name-lint": "1.3.0",
     "@commitlint/config-conventional": "21.2.2",
-    "@eslint/js": "10.0.1",
     "@release-it/conventional-changelog": "12.0.0",
     "@rslib/core": "0.23.2",
     "@types/node": "26.2.0",
     "@types/semver": "7.8.0",
     "@types/update-notifier": "6.0.8",
     "commitlint": "21.2.2",
-    "eslint": "10.8.1",
-    "eslint-config-airbnb-extended": "3.2.0",
-    "eslint-config-prettier": "10.1.8",
     "eslint-plugin-perfectionist": "5.10.1",
-    "eslint-plugin-unicorn": "73.0.0",
     "husky": "9.1.7",
     "lint-staged": "17.3.0",
     "npm-check-updates": "23.0.2",
     "npm-run-all2": "9.0.3",
-    "prettier": "3.9.6",
+    "oxfmt": "0.63.0",
+    "oxlint": "1.78.0",
+    "oxlint-tsgolint": "7.0.2001",
     "release-it": "21.0.2",
     "semver": "7.8.5",
-    "sort-package-json": "4.0.0",
     "tsx": "4.23.12",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
-  "packageManager": "pnpm@11.21.0",
   "engines": {
     "node": ">=24"
   },
-  "publishConfig": {
-    "access": "public"
-  }
+  "packageManager": "pnpm@11.21.0"
 }

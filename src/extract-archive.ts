@@ -4,6 +4,7 @@ import { extract as extractTar } from 'tar';
 
 import { logError } from './log';
 
+// oxlint-disable-next-line typescript/strict-void-return
 const execFileAsync = promisify(execFile);
 
 export async function extractArchive(archivePath: string, targetDirectoryPath: string) {
