@@ -21,6 +21,7 @@ env:
   RELEASE_IT_PUSH_REPO: git@github.com:${{ github.repository }}.git
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN: false
 
 jobs:
   release:
@@ -33,17 +34,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          run_install: false
-          cache: true
+      - name: Get node version
+        id: nvm
+        run: echo "version=$(tr -d '[:space:]' < .nvmrc)" >> "$GITHUB_OUTPUT"
 
-      - name: Setup Node
-        uses: actions/setup-node@v6
+      - name: Setup pnpm
+        uses: pnpm/setup@v2
         with:
-          node-version-file: .nvmrc
-          registry-url: https://registry.npmjs.org
+          runtime: node@26
+          install: false
+          cache: true
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

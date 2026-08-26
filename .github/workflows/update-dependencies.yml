@@ -23,14 +23,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .nvmrc
+      - name: Get node version
+        id: nvm
+        run: echo "version=$(tr -d '[:space:]' < .nvmrc)" >> "$GITHUB_OUTPUT"
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v6
+      - name: Setup pnpm
+        uses: pnpm/setup@v2
         with:
+          runtime: node@26
+          install: false
           cache: true
 
       - name: Install dependencies
