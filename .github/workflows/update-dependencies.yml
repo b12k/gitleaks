@@ -12,6 +12,7 @@ concurrency:
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN: false
 
 jobs:
   update:
