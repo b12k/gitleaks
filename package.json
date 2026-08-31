@@ -86,7 +86,7 @@
     "oxlint-tsgolint": "7.0.2001",
     "release-it": "21.0.2",
     "semver": "7.8.5",
-    "tsx": "4.23.12",
+    "tsx": "4.23.13",
     "typescript": "7.0.2"
   },
   "engines": {
