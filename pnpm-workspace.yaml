@@ -2,5 +2,5 @@ saveExact: true
 
 allowBuilds:
   esbuild: true
-  pnpm: set this to true or false
+  pnpm: true
   unrs-resolver: true
