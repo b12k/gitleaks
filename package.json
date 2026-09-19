@@ -84,8 +84,8 @@
     "npm-run-all2": "9.0.3",
     "oxfmt": "0.68.0",
     "oxlint": "1.83.0",
-    "oxlint-tsgolint": "7.0.2001",
-    "release-it": "21.0.3",
+    "oxlint-tsgolint": "7.0.2002",
+    "release-it": "21.1.0",
     "semver": "7.8.5",
     "tsx": "4.23.13",
     "typescript": "7.0.2"
