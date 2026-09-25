@@ -201,8 +201,8 @@ importers:
         specifier: 21.2.3
         version: 21.2.3(@types/node@26.6.2)(conventional-commits-filter@6.0.1)(conventional-commits-parser@7.1.2)(typescript@7.0.2)
       eslint-plugin-perfectionist:
-        specifier: 5.12.0
-        version: 5.12.0(eslint@10.10.0(jiti@2.7.0))(typescript@7.0.2)
+        specifier: 5.12.1
+        version: 5.12.1(eslint@10.10.0(jiti@2.7.0))(typescript@7.0.2)
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -1784,11 +1784,14 @@ packages:
     engines: {node: '>=6.0'}
     hasBin: true
 
-  eslint-plugin-perfectionist@5.12.0:
-    resolution: {integrity: sha512-1S1Vgb9b3AIxlJoVMbGKB5PwOCtA0PTvDIiGhIoT9CzZa5aZ6BhgGywIj3ONJ5vrH7gTDjgsLgJ1gPUbDI6UUQ==}
+  eslint-plugin-perfectionist@5.12.1:
+    resolution: {integrity: sha512-krdSE7Dz+TCtcVr2+rfNhlOIFFBJcUdoRvjaN7JQnsaVnxJw+BZh9wMkY3MSLCJat+yW+UPTQLKS82Epc7MGZA==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
+    peerDependenciesMeta:
+      eslint:
+        optional: true
 
   eslint-scope@9.1.2:
     resolution: {integrity: sha512-xS90H51cKw0jltxmvmHy2Iai1LIqrfbw57b79w/J7MfvDfkIkFZ+kj6zC3BjtUwh150HsSSdxXZcsuv72miDFQ==}
@@ -4024,12 +4027,13 @@ snapshots:
     optionalDependencies:
       source-map: 0.6.1
 
-  eslint-plugin-perfectionist@5.12.0(eslint@10.10.0(jiti@2.7.0))(typescript@7.0.2):
+  eslint-plugin-perfectionist@5.12.1(eslint@10.10.0(jiti@2.7.0))(typescript@7.0.2):
     dependencies:
       '@typescript-eslint/types': 8.70.0
       '@typescript-eslint/utils': 8.70.0(eslint@10.10.0(jiti@2.7.0))(typescript@7.0.2)
-      eslint: 10.10.0(jiti@2.7.0)
       natural-orderby: 5.0.0
+    optionalDependencies:
+      eslint: 10.10.0(jiti@2.7.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
