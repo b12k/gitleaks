@@ -73,7 +73,7 @@
     "@commitlint/config-conventional": "21.2.3",
     "@release-it/conventional-changelog": "12.0.2",
     "@rslib/core": "1.0.3",
-    "@types/node": "26.6.3",
+    "@types/node": "26.6.4",
     "@types/semver": "7.8.0",
     "@types/update-notifier": "6.0.8",
     "commitlint": "21.2.3",
