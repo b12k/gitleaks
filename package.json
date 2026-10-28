@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "boxen": "9.0.0",
-    "pnpm": "12.15.0",
+    "pnpm": "12.16.0",
     "tar": "7.5.22",
     "update-notifier": "7.3.1"
   },
@@ -83,8 +83,8 @@
     "lint-staged": "17.6.0",
     "npm-check-updates": "23.1.1",
     "npm-run-all2": "9.0.4",
-    "oxfmt": "0.74.0",
-    "oxlint": "1.89.0",
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "release-it": "21.1.1",
     "semver": "7.8.5",
@@ -94,5 +94,5 @@
   "engines": {
     "node": ">=24"
   },
-  "packageManager": "pnpm@12.15.0"
+  "packageManager": "pnpm@12.16.0"
 }
