@@ -19,6 +19,7 @@ env:
   GIT_USER_NAME: ${{ vars.GIT_USER_NAME }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   RELEASE_IT_PUSH_REPO: git@github.com:${{ github.repository }}.git
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
   PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN: false
@@ -60,11 +61,19 @@ jobs:
           git config user.email "$GIT_USER_EMAIL"
 
       - name: Release
-        run: pnpm release
+        id: release
+        run: pnpm release --ci '--hooks.after:release=echo "version=${version}" >> "$GITHUB_OUTPUT"'
 
       - name: Notify release succeeded
-        run: pnpm ga:notify success "[@b12k/gitleaks] Release succeeded."
+        if: success() && steps.release.outputs.version != ''
+        env:
+          PUBLISHED_VERSION: ${{ steps.release.outputs.version }}
+        run: pnpm ga:notify success "[@b12k/gitleaks] Published $PUBLISHED_VERSION."
+
+      - name: Notify release skipped
+        if: success() && steps.release.outputs.version == ''
+        run: pnpm ga:notify info "[@b12k/gitleaks] No new version to release."
 
       - name: Notify release failed
         if: failure()
-        run: pnpm ga:notify error "[@b12k/gitleaks] Release failed."
+        run: 'pnpm ga:notify error "[@b12k/gitleaks] Release failed. Logs: $RUN_URL"'
